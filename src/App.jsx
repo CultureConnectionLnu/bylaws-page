@@ -16,9 +16,10 @@ function Home() {
             />
           </div>
           <a 
-          href="https://cultureconnection.se/bylaws/file/Bylaws_of_the_Culture_Connection.pdf" target="_blank">
+          href="https://cultureconnection.se/bylaws/file/Bylaws_of_the_Culture_Connection.pdf" target="_blank"
+          download
+          >
           <button
-            type="download"
             className="bg-red-400 sm:w-96 mx-auto mt-6 text-center p-4 rounded py-3 border-2 border-black shadow-custom hover:shadow-none transition-all hover:translate-x-1 translate-y-1 text-2xl font-bold"
           >
             Download PDF
