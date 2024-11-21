@@ -1,15 +1,20 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import SocialIcons from "./Socialmedia.jsx";
 import CCLogo from "./assets/CCLogo.png";
 import Bylaws from "./Bylaws.jsx";
 
 function Home() {
+  const [showBylaws, setShowBylaws] = useState(false);
   const bylawsRef = useRef(null);
 
-  const handleReadHereClick = () => {
-    if (bylawsRef.current) {
+  useEffect(() => {
+    if (showBylaws && bylawsRef.current) {
       bylawsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+  }, [showBylaws]);
+
+  const handleReadHereClick = () => {
+    setShowBylaws((prevShowBylaws) => !prevShowBylaws);
   };
 
   return (
@@ -30,7 +35,7 @@ function Home() {
               download
             >
               <button
-                className="bg-red-400 sm:w-96 mx-auto mt-6 text-center p-4 rounded py-3 border-2 border-black shadow-custom hover:shadow-none transition-all hover:translate-x-1 translate-y-1 text-2xl font-bold"
+                className="bg-red-400 sm:w-96 mx-auto mt-6 text-center rounded py-3 border-2 border-black shadow-custom hover:shadow-none transition-all hover:-translate-x-1 hover:translate-y-1 text-2xl font-bold"
               >
                 Download PDF
               </button>
@@ -38,18 +43,21 @@ function Home() {
             <button
               type="button"
               onClick={handleReadHereClick}
-              className="bg-blue-400 sm:w-96 mx-auto mt-6 text-center p-4 rounded py-3 border-2 border-black shadow-custom hover:shadow-none transition-all hover:translate-x-1 translate-y-1 text-2xl font-bold"
+              className="bg-blue-400 sm:w-96 mx-auto mt-6 text-center rounded py-3 border-2 border-black shadow-custom hover:shadow-none transition-all hover:-translate-x-1 hover:translate-y-1 text-2xl font-bold"
             >
-              Read here!
+              {showBylaws ? 'Hide' : 'Read here!'}
             </button>
+            {showBylaws && (
+        <div ref={bylawsRef}>
+          <Bylaws />
+        </div>
+      )}
             <SocialIcons />
           </div>
         </div>
       </div>
-      <div ref={bylawsRef}>
-        <Bylaws />
-      </div>
     </div>
+    
   );
 }
 
