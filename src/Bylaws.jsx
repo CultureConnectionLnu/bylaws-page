@@ -11,8 +11,10 @@ function Bylaws() {
   }, []);
 
   return (
-    <div className="bylaws-container p-6 max-w-xl mx-auto">
-      <ReactMarkdown>{markdownContent}</ReactMarkdown>
+    <div className="flex justify-center mt-6">
+      <div className="bg-white/80 rounded-lg p-6 max-w-xl w-full shadow-md h-96 overflow-y-auto">
+        <ReactMarkdown>{markdownContent}</ReactMarkdown>
+      </div>
     </div>
   );
 }
