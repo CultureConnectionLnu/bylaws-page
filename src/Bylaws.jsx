@@ -6,7 +6,7 @@ function Bylaws() {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="bg-white/80 rounded-lg p-6 max-w-6xl mx-0 sm:mx-6 w-full shadow-md overflow-y-auto break-words">
+      <div className="bg-white/80 rounded-lg p-6 sm:p-12 max-w-6xl mx-0 sm:mx-6 w-full shadow-md overflow-y-auto break-words">
         <ReactMarkdown
           components={{
             // Headers
@@ -18,6 +18,9 @@ function Bylaws() {
             ),
             h3: ({ ...props }) => (
               <h3 className="text-lg font-semibold mb-2" {...props} />
+            ),
+            h4: ({ ...props }) => (
+              <h3 className="font-semibold" {...props} />
             ),
 
             // Paragraph
