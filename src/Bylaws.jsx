@@ -6,7 +6,7 @@ function Bylaws() {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="bg-white/80 rounded-lg p-6 max-w-6xl mx-6 w-full shadow-md overflow-y-auto">
+      <div className="bg-white/80 rounded-lg p-6 max-w-6xl mx-0 sm:mx-6 w-full shadow-md overflow-y-auto break-words">
         <ReactMarkdown
           components={{
             // Headers
